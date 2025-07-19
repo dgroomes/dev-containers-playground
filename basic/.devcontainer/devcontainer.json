@@ -1,0 +1,13 @@
+{
+  "name": "dev-containers-playground/basic",
+  "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+  "features": {
+    // why sometimes mcr and sometimes ghcr?
+    "ghcr.io/devcontainers/features/sshd:1": {
+      // does devcontainers blow up on comments in the JSON?
+      // can i link to the latest version or releease notes of the 'sshd' feature?
+      "version": "latest"
+    }
+  },
+  "forwardPorts": [22, 2345], // todo describe these ports
+}
