@@ -1,0 +1,12 @@
+{
+  "name": "dev-containers-playground/basic",
+  "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+  "features": {
+    // Go language feature. See https://github.com/devcontainers/features/tree/main/src/go
+    "ghcr.io/devcontainers/features/go:1": {
+
+      // I'm confused by this version here. What's the "1" mean above if not the version?
+      "version": "latest"
+    }
+  }
+}
