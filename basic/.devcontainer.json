@@ -2,11 +2,23 @@
   "name": "dev-containers-playground/basic",
   "image": "mcr.microsoft.com/devcontainers/base:debian-12",
   "features": {
-    // Go language feature. See https://github.com/devcontainers/features/tree/main/src/go
-    "ghcr.io/devcontainers/features/go:1": {
 
-      // I'm confused by this version here. What's the "1" mean above if not the version?
-      "version": "latest"
+    // Use the feature for the Go programming language.
+    //
+    // See https://github.com/devcontainers/features/tree/main/src/go
+    //
+    // You can get the latest version using this command:
+    //
+    //     devcontainer features info tags ghcr.io/devcontainers/features/go
+    //
+    // You can also browse the versions at https://github.com/devcontainers/features/pkgs/container/features%2Fgo
+    //
+    // I would like to see a changelog page that tells the story of what changed between versions. Where is that?
+    //
+    "ghcr.io/devcontainers/features/go:1.3.2": {
+      // It looks like the feature's implementation (a Bash script) installs from the Debian repositories. So you can use
+      // whatever versions are there.
+      "version": "1.24.5"
     }
   }
 }

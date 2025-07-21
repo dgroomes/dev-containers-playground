@@ -75,8 +75,18 @@ Use a combination of publicly maintained *features* and your own custom features
 
 ## Observations
 
+DevContainers features are built on a foundation of shell scripting. Ad hoc shell scripting with Bash. Lots and lots of it. I remember having the same reaction in 2022 when I first looked at DevContainers. I get that there is a reason to use Bash/POSIX shell instead of a full programming language because it reduces a dependency on a runtime or compiler toolchain. But, these scripts have oodles of dependencies on the many commands they call. For example, in the [Go feature](https://github.com/devcontainers/features/blob/e3e3ed76c4778e1ec51cae7c11e74565d0052a7f/src/go/install.sh), it depends on:
 
-- Can I change the container name? I don't like the super long random name like `vsc-basic-2ca07a847a8b27fb1ad4219d0c22817a1e935ac378024def0f97d6fcfcfff753-features`. Crowds up the output.
+* `curl`
+* `git`
+* `tar`
+* `gpg`
+* `awk`
+* and more...
+
+Maybe use Go/Node.js and execute subprocesses, and use their standard libraries for HTTP requests, file I/O, and string manipulation. They can even be tested!
+
+There is a lot to be desired in the DevContainers first-party elements (the CLI and the features), but I'm hopeful that the core spec is all we need. I can use DevPod and write my own features, as needed.
 
 
 ## Wish List
@@ -89,6 +99,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
    - Use DevPod
    - I want to use a custom template.
    - Consider using SSH here.
+- [ ] Can "features" depend on other features? It's probably not a good idea to get very nested, but I want to know what's possible. 
 
 
 ## Reference
