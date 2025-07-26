@@ -86,7 +86,7 @@ DevContainers features are built on a foundation of shell scripting. Ad hoc shel
 
 Maybe use Go/Node.js and execute subprocesses, and use their standard libraries for HTTP requests, file I/O, and string manipulation. They can even be tested!
 
-There is a lot to be desired in the DevContainers first-party elements (the CLI and the features), but I'm hopeful that the core spec is all we need. I can use DevPod and write my own features, as needed.
+There is a lot to be desired in the DevContainers first-party elements (the CLI and the features), but I'm hopeful that the core spec is all we need. I can use [DevPod][dev-pod] and write my own features, as needed.
 
 
 ## Wish List
@@ -100,6 +100,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
    - I want to use a custom template.
    - Consider using SSH here.
 - [ ] Can "features" depend on other features? It's probably not a good idea to get very nested, but I want to know what's possible. 
+- [ ] Make a connection to things like Dagger and Nix. I've had my eye on these things. I like their ideas. I'm not sure they are a good fit for me right now, but it's important to keep them in the mix because I'm especially unsure about how useful DevContainers is for me and I don't want to find myself building a substantial dependency on DevContainers because of its shakey foundations on ad hoc shell scripting and a never-fully-baked reference implementation (the CLI).
 
 
 ## Reference
@@ -113,3 +114,4 @@ General clean-ups, TODOs and things I wish to implement for this project:
 [dev-containers-features]: https://containers.dev/features
 [dev-containers-templates]: https://containers.dev/templates
 [dev-containers-cli]: https://github.com/devcontainers/cli
+[dev-pod]: https://github.com/loft-sh/devpod
