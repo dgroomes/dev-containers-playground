@@ -7,9 +7,14 @@ Author custom DevContainer *features* to define a development container tailored
 
 While the publicly maintained [DevContainers *features*][dev-containers-features] will get you started with a development container, you will find some gaps between what's available compared to the exact bespoke dev environment needs you have. Thankfully, the DevContainers spec makes it easy to write your own features and fill in the missing feature gaps.
 
-It boils down to some JSON and a custom `install.sh` shell script. This subproject demonstrates some custom features to get up and running with a Rust development environment that includes Nushell, which is my preferred shell.
+It boils down to some JSON and a custom `install.sh` shell script. This subproject demonstrates some custom features to get up and running with a Rust development environment.
 
-In this example, I'm using [DevPod][devpod] instead of the DevContainers CLI because I'm finding that DevPod has clearer build output (colorized), less noise in the error messages (No Node.js stacktraces, but instead clear error messages), and is overall smoother and more featureful than the DevContainers CLI.  
+In this example, I'm using [DevPod][devpod] instead of the DevContainers CLI because I'm finding that DevPod:
+
+* Has clearer build output (colorized)
+* Has less noise (fewer internal implementation details leaking out, like Node.js stracktraces)
+* Has error messages (DevContainers CLI seems to assume happy path only)
+* Is overall smoother and more featureful than the DevContainers CLI.  
 
 
 ## Instructions
@@ -41,31 +46,20 @@ Follow these instructions to build and run the dev container.
      ```
    * I'm a little surprised there isn't an all inclusive command to create, start and attach to the dev container, like we are used to with `docker run ...`. But maybe it's a good thing to separate these concerns so explicitly?
    * Also, this `ssh` is a little circuitous. DevPod added an entry into the `~/.ssh/config` file for the container and it has a `ProxyCommand` that calls `devpod ssh ...`. This is clever, and ultimately I like that we have a dev container that can be accessed via SSH.
-   * You should now be on the commandline in the container. We're getting somewhere! Altogether, it should look like the following.
-   * ```text
-     $ ssh custom.devpod
-     root ➜ /workspaces/custom $
-     ```
-4. Get set up with Nushell and the project's `do.nu` scripts
-   * Note: run the following commands in the SSH/shell session in the dev container.
-   * Start a Nushell session with the following command.
+   * You should now be on the commandline in the container.
+4. Build and run the Rust program
+   * Note: run the following command in the SSH/shell session in the dev container.
    * ```shell
-     nu
-     ```
-   * *Overlay* (Nushell concept) the commands defined in the `do.nu` file.
-   * ```shell
-     overlay use --prefix do.nu
-     ```
-   * Then build and run the Rust program with the following commands.
-   * ```nushell
-     do build; do run
+     cargo run
      ```
    * It should output something like the following.
    * ```
      Hello from a Rust program running in a custom dev container! ✅
      ```
 5. Exit, stop, and delete the dev container
-   * Exit the SSH/shell session with 
+   * ```shell
+     exit
+     ``` 
    * ```shell
      devpod delete .
      ```
@@ -87,7 +81,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
     19:18:06 error Try using the --debug flag to see a more verbose output
     19:18:06 fatal tunnel to container: run in container: ssh session: Process exited with status 130
     ```
-- [ ] Drop Nushell from the example. The Rust toolchain is enough for illustration and the extra Nushell steps are too much for the example.
+- [x] DONE Drop Nushell from the example. The Rust toolchain is enough for illustration and the extra Nushell steps are too much for the example.
 
 
 ## Reference
