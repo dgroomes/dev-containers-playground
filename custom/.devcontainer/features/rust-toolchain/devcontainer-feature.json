@@ -1,0 +1,12 @@
+{
+  "id": "rust-toolchain",
+  "version": "0.0.1",
+  "name": "Rust toolchain",
+  "description": "Install the typical Rust toolchain (rustup + cargo)",
+  "containerEnv": {
+    "PATH": "${PATH}:/root/.cargo/bin"
+  },
+  "installsAfter": [
+    "./features/base"
+  ]
+}

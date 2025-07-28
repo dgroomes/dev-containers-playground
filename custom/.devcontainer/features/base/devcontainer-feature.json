@@ -1,0 +1,6 @@
+{
+  "id": "base",
+  "version": "0.0.1",
+  "name": "Base",
+  "description": "Install common components that stand as a base for the image as a whole."
+}

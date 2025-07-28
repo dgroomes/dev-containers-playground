@@ -68,9 +68,7 @@ See the README in [basic/](basic/).
 
 ### `custom/`
 
-NOT YET IMPLEMENTED
-
-Use a combination of publicly maintained *features* and your own custom features to define a bespoke development container.
+Author custom DevContainer *features* to define a development container tailored to your exact needs.
 
 
 ## Observations
@@ -95,11 +93,11 @@ General clean-ups, TODOs and things I wish to implement for this project:
 
 - [x] DONE Implement the `basic/` subproject
    - DONE Re-work it to not use SSH because of the port forward shortcomings of the CLI. Just run the basic Go program. This truly becomes a "hello world" example.
-- [ ] Implement the `custom/` subproject
+- [x] DONE Implement the `custom/` subproject
    - Use DevPod
-   - I want to use a custom template.
-   - Consider using SSH here.
-- [ ] Can "features" depend on other features? It's probably not a good idea to get very nested, but I want to know what's possible. 
+   - (Update: I used custom features) I want to use a custom template.
+   - (Update: I'll get to that soon enough; also DevPod kind of already does it?) Consider using SSH here.
+- [x] (Answer: yes, looks like it from the docs) Can "features" depend on other features? It's probably not a good idea to get very nested, but I want to know what's possible. 
 - [ ] Make a connection to things like Dagger and Nix. I've had my eye on these things. I like their ideas. I'm not sure they are a good fit for me right now, but it's important to keep them in the mix because I'm especially unsure about how useful DevContainers is for me and I don't want to find myself building a substantial dependency on DevContainers because of its shakey foundations on ad hoc shell scripting and a never-fully-baked reference implementation (the CLI).
 
 

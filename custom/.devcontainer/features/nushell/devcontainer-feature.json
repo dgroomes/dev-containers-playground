@@ -1,0 +1,16 @@
+{
+  "id": "nushell",
+  "version": "0.0.1",
+  "name": "Nushell",
+  "description": "Build and install Nushell from source using Cargo.",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "0.106.0",
+      "description": "Nushell crate version tag to build"
+    }
+  },
+  "installsAfter": [
+    "./features/rust-toolchain"
+  ]
+}

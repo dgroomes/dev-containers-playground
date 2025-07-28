@@ -1,0 +1,22 @@
+{
+  "name": "dev-containers-playground/custom",
+  // I'd prefer to use straight Debian. What is in the devcontainers base image?
+  "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+  "features": {
+    "./features/base": {},
+    "./features/rust-toolchain": {},
+    "./features/nushell": {
+      // Realistically I would hardcode the version in the local feature's 'install.sh', but I want to showcase
+      // parameterization.
+      "version": "0.106.0"
+    }
+  },
+
+  // I can't figure out idiomatically how to express and run the build steps ("features" install.sh scripts) not as
+  // root. Keeping things root for now.
+  "containerUser": "root",
+  "remoteUser": "root",
+
+  // How do I override the entrypoint to use 'nu'? What are the options?
+  "postCreateCommand": "nu --commands 'print \"Welcome to a custom dev container!\"'",
+}
