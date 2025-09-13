@@ -70,9 +70,9 @@ Follow these instructions to build and run the dev container.
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-- [ ] Use 'debian' base image directly. I'm skeptical of the value and cohesion of the DevContainer's branded base images. I don't want what I don't need.
+- [x] DONE Use 'debian' base image directly. I'm skeptical of the value and cohesion of the DevContainer's branded base images. I don't want what I don't need.
 - [ ] Try to figure out the 'containerUser' feature. I struggled with this. There is always the desire to run any computer process with less privilege, and this extends to the "don't run containers as root" chant. But it is often an uphill battle against the entrenched code paths and practices in the ecosystem. I gave it a shot. Not a good return. But consider revisiting. For now, my recommendation is to stick with root in DevContainers. It's not respecting my 'containerUser' setting in the feature build so my Rust toolchain can't get installed at `/home/me` like I wanted...
-- [ ] DevPod isn't re-creating the image when I do `devpod up .` even when I've changed the contents of the feature. I wonder if I have to just up the version number of the features?
+- [ ] DevPod isn't re-creating the image when I do `devpod up .` even when I've changed the contents of the feature. I wonder if I have to just up the version number of the features? UPDATE: no that doesn't seem to do it either. It's also not enough to do `devpod delete .` because it doesn't delete the underlying image, and upon a later `devpod up .` it re-uses the existing image. So I've resorted to scripting out some shell code to find images matching the name "vsc-*" and deleting them.
 - [ ] Is there a way to more gracefully exit? I'm getting this:
   - ```text
     root ➜ /workspaces/custom $ exit
@@ -82,6 +82,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
     19:18:06 fatal tunnel to container: run in container: ssh session: Process exited with status 130
     ```
 - [x] DONE Drop Nushell from the example. The Rust toolchain is enough for illustration and the extra Nushell steps are too much for the example.
+- [ ] Why is the custom image named with a "vsc-" prefix? I'm trying to isolate the VSCode ecosystem dependency? Where is this even coming from? Note: see <https://stackoverflow.com/questions/75915194/vscode-devcontainers-why-are-two-images-built>. Such a low value thing. I'm again skeptical of the DevContainers and related ecosystem. I'll just handroll some Dockerfiles and scripts.  
 
 
 ## Reference
